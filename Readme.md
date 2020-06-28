@@ -1,6 +1,6 @@
 # SynthPy
 
-SynthPy is a Python3 library that hosts vst2/vst3/AU in a C++ shared library with python bindings using [JUCE](https://github.com/julianstorer/JUCE), [Maximilian](https://github.com/micknoise/Maximilian) and [Boost C++](https://www.boost.org/). The plan is to build this into a modern neural network for synthesizers library with maximum DSP compatibility across operating systems.
+SynthPy is a Python3 library that hosts vst2/vst3/AU in a C++ shared library with python bindings using [JUCE](https://github.com/juce-framework/JUCE), [Maximilian](https://github.com/micknoise/Maximilian) and [Boost C++](https://www.boost.org/). The plan is to build this into a modern neural network for synthesizers library with maximum DSP compatibility across operating systems.
 
 ## Getting Started
 
@@ -58,7 +58,7 @@ sudo yum install boost-devel
 
 If your distribution's package manager doesn't have boost [you can compile from source here](https://www.boost.org/doc/libs/1_73_0/more/getting_started/unix-variants.html)
 
-[JUCE](https://github.com/julianstorer/JUCE) itself has a list of dependancies for Linux; it's a gigantic library. Depending on your distribution and setup you may already have some / all of the following libraries. If you are on Ubuntu, the following commands will install all your dependancies. If you are on another distro, check the JUCE docs.
+[JUCE](https://github.com/juce-framework/JUCE) itself has a list of dependancies for Linux; it's a gigantic library. Depending on your distribution and setup you may already have some / all of the following libraries. If you are on Ubuntu, the following commands will install all your dependancies. If you are on another distro, check the JUCE docs.
 
 ```
 sudo apt-get -y install llvm
