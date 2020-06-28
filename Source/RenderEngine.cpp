@@ -3,7 +3,7 @@
 
     RenderEngine.cpp
     Created: 27 Jun 2020 2:01:14am
-    Author:  Hisham Abdel-Aty
+    Author:  H Aty
 
   ==============================================================================
 */

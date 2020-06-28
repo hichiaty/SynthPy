@@ -3,7 +3,7 @@
 
     PatchGenerator.cpp
     Created: 27 Jun 2020 2:01:28am
-    Author:  Hisham Abdel-Aty
+    Author:  H Aty
 
   ==============================================================================
 */

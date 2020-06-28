@@ -3,7 +3,7 @@
 
     Main.cpp
     Created: 27 Jun 2020 1:54:23am
-    Author:  Hisham Abdel-Aty
+    Author:  H Aty
 
   ==============================================================================
 */

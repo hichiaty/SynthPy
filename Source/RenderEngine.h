@@ -3,7 +3,7 @@
 
     RenderEngine.h
     Created: 27 Jun 2020 2:01:45am
-    Author:  Hisham Abdel-Aty
+    Author:  H Aty
 
   ==============================================================================
 */
