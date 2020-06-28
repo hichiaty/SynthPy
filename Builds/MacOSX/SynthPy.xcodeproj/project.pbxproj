@@ -9,6 +9,10 @@
 			isa = PBXBuildFile;
 			fileRef = E5FBC45E9F8F425C106E288D;
 		};
+		2BFE80C442B46BD45BDBAF35 = {
+			isa = PBXBuildFile;
+			fileRef = 4A03FBD983033A3AE848E607;
+		};
 		A0DD24FAD5BC5BFECFEDAF6E = {
 			isa = PBXBuildFile;
 			fileRef = 150259F87E004BF58AFD594A;
@@ -28,6 +32,10 @@
 		5B8B9E7EBD2F05C41AD69102 = {
 			isa = PBXBuildFile;
 			fileRef = C5A8B5C0E9122E89B0D7EEAB;
+		};
+		3057DCAA1B3954CCFC969A4A = {
+			isa = PBXBuildFile;
+			fileRef = FE0226CC3134E731179AB712;
 		};
 		4743477F093D70EE40EB1435 = {
 			isa = PBXBuildFile;
@@ -268,6 +276,13 @@
 			name = "include_juce_audio_processors.mm";
 			path = "../../JuceLibraryCode/include_juce_audio_processors.mm";
 			sourceTree = "SOURCE_ROOT";
+		};
+		4A03FBD983033A3AE848E607 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = AudioUnit.framework;
+			path = System/Library/Frameworks/AudioUnit.framework;
+			sourceTree = SDKROOT;
 		};
 		4B3CC9884EC901A18403FE17 = {
 			isa = PBXFileReference;
@@ -521,6 +536,13 @@
 			path = "~/JUCE/modules/juce_cryptography";
 			sourceTree = "<absolute>";
 		};
+		FE0226CC3134E731179AB712 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = CoreAudioKit.framework;
+			path = System/Library/Frameworks/CoreAudioKit.framework;
+			sourceTree = SDKROOT;
+		};
 		585A3CE7048DD27F1B698D5C = {
 			isa = PBXGroup;
 			children = (
@@ -617,11 +639,13 @@
 		854FA516B3F702C3AB0CFC84 = {
 			isa = PBXGroup;
 			children = (
+				4A03FBD983033A3AE848E607,
 				150259F87E004BF58AFD594A,
 				550BACE5C930AF0FED8D8A0D,
 				9B107E70AA691E07824DEF33,
 				C0FC923EE220B830D06130EC,
 				C5A8B5C0E9122E89B0D7EEAB,
+				FE0226CC3134E731179AB712,
 				76A51B592F48A7DE0B411609,
 				2B06F8DA3024388B506ECDF1,
 				BC42E12D56A6624D94344C4E,
@@ -681,8 +705,10 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
+					"../../VST2_SDK",
 					"$(inherited)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -722,8 +748,10 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
+					"../../VST2_SDK",
 					"$(inherited)",
 				);
 				LLVM_LTO = YES;
@@ -895,11 +923,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BFE80C442B46BD45BDBAF35,
 				A0DD24FAD5BC5BFECFEDAF6E,
 				BB5772032E782940017699C1,
 				59EEEB00E26C685E81D3ADBB,
 				55C1D8CE6821C5DAFD612737,
 				5B8B9E7EBD2F05C41AD69102,
+				3057DCAA1B3954CCFC969A4A,
 				4743477F093D70EE40EB1435,
 				27B7E1716346A0EDCDF001A7,
 				638F1BE04C69D4C6209398C0,
