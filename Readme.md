@@ -58,7 +58,7 @@ sudo yum install boost-devel
 
 If your distribution's package manager doesn't have boost [you can compile from source here](https://www.boost.org/doc/libs/1_73_0/more/getting_started/unix-variants.html)
 
-[JUCE](https://github.com/juce-framework/JUCE) itself has a list of dependancies for Linux; it's a gigantic library. Depending on your distribution and setup you may already have some / all of the following libraries. If you are on Ubuntu, the following commands will install all your dependancies. If you are on another distro, check the JUCE docs.
+[JUCE](https://github.com/juce-framework/JUCE) itself has a list of dependancies for Linux; it's a gigantic library. You probably have some of these dependancies, depending on your distribution. If you are on Ubuntu, the commands below will install all your dependancies. If you are on another distro, check the JUCE docs.
 
 ```
 sudo apt-get -y install llvm
