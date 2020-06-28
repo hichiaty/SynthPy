@@ -25,7 +25,7 @@ To begin using this library you must build the C++ back-end for your OS then sim
 
 ### MacOS
 
-If you don't have it already, [get brew](https://brew.sh/). The last time I checked the command to install was simply this:
+If you don't have it already, [get brew](https://brew.sh/).
 
 Get Boost with Brew (Trust me, it's way easier than compiling yourself)
 ```
