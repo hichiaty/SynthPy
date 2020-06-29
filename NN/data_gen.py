@@ -3,10 +3,10 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 from tqdm import tqdm
-from multiprocessing import Process
+import gc
 
 
-CHUNK_SIZE = 100
+CHUNK_SIZE = 1000
 TRAIN_SET_SIZE = 100000
 TEST_SET_SIZE = 10000
 TRAIN_SET_PATCH_DIR = 'Train_Patches'
@@ -41,6 +41,7 @@ def gen_data(host, train=True):
                 with open(f'{TEST_SET_PATCH_DIR}/{data_patch}.spatch', 'wb') as f:
                     np.save(f, data_set)
             data_set = []
+            gc.collect()
 
 if __name__ == '__main__':
     host = sp.Host(44100, 512, 512)
