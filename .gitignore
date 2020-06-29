@@ -42,3 +42,7 @@
 
 # Notebook Checkpoints
 *.ipynb_checkpoints
+
+# Data
+/NN/Test_Patches/*
+/NN/Train_Patches/*
