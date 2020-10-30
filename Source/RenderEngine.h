@@ -53,14 +53,23 @@ public:
 
     bool loadPlugin(const std::string& path);
 
+    bool savePatch(const std::string& path);
+
+    bool loadPatch(const std::string& path);
+
     void setPatch(const PluginPatch patch);
 
+    float getParameter(const int parameter);
+
+    void setParameter(const int parameter, const float value);
+    
     const PluginPatch getPatch();
 
     void renderPatch(const uint8  midiNote,
         const uint8  midiVelocity,
         const double noteLength,
-        const double renderLength);
+        const double renderLength,
+        const bool overridePatch = true);
 
     const MFCCFeatures getMFCCFrames();
 

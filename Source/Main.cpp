@@ -120,6 +120,15 @@ namespace wrap
             PluginPatch patch = listOfTuplesToPluginPatch(listOfTuples);
             RenderEngine::setPatch(patch);
         }
+        float wrapperGetParameter(int parameter)
+        {
+            return RenderEngine::getParameter(parameter);
+        }
+
+        void wrapperSetParameter(int parameter, float value)
+        {
+            RenderEngine::setParameter(parameter, value);
+        }
 
         boost::python::list wrapperGetPatch()
         {
@@ -129,7 +138,8 @@ namespace wrap
         void wrapperRenderPatch(int    midiNote,
             int    midiVelocity,
             double noteLength,
-            double renderLength)
+            double renderLength,
+            bool overridePatch = true)
         {
             if (midiNote > 255) midiNote = 255;
             if (midiNote < 0) midiNote = 0;
@@ -138,7 +148,8 @@ namespace wrap
             RenderEngine::renderPatch(midiNote,
                 midiVelocity,
                 noteLength,
-                renderLength);
+                renderLength,
+                overridePatch);
         }
 
         boost::python::list wrapperGetMFCCFrames()
@@ -195,7 +206,11 @@ BOOST_PYTHON_MODULE(SynthPy)
 
     class_<RenderEngineWrapper>("Host", init<int, int, int>())
         .def("load_plugin", &RenderEngineWrapper::loadPlugin)
+        .def("save_patch", &RenderEngineWrapper::savePatch)
+        .def("load_patch", &RenderEngineWrapper::loadPatch)
         .def("set_patch", &RenderEngineWrapper::wrapperSetPatch)
+        .def("get_parameter", &RenderEngineWrapper::wrapperGetParameter)
+        .def("set_parameter", &RenderEngineWrapper::wrapperSetParameter)
         .def("get_patch", &RenderEngineWrapper::wrapperGetPatch)
         .def("render_patch", &RenderEngineWrapper::wrapperRenderPatch)
         .def("get_mfcc_frames", &RenderEngineWrapper::wrapperGetMFCCFrames)

@@ -70,12 +70,16 @@ bool RenderEngine::loadPlugin(const std::string& path)
 void RenderEngine::renderPatch(const uint8  midiNote,
     const uint8  midiVelocity,
     const double noteLength,
-    const double renderLength)
+    const double renderLength,
+    const bool overridePatch)
 {
     // Get the overriden patch and set the vst parameters with it.
-    PluginPatch overridenPatch = getPatch();
-    for (const auto& parameter : overridenPatch)
-        plugin->setParameter(parameter.first, parameter.second);
+    if (overridePatch)
+    {
+        PluginPatch overridenPatch = getPatch();
+        for (const auto& parameter : overridenPatch)
+            plugin->setParameter(parameter.first, parameter.second);
+    }
 
     // Get the note on midiBuffer.
     MidiMessage onMessage = MidiMessage::noteOn(1,
@@ -368,6 +372,51 @@ void RenderEngine::setPatch(const PluginPatch patch)
             "\n- Current size:  " << currentParameterSize <<
             "\n- Supplied size: " << newPatchParameterSize << std::endl;
     }
+}
+
+//==============================================================================
+float RenderEngine::getParameter(const int parameter)
+{
+    return plugin->getParameter(parameter);
+}
+
+//==============================================================================
+void RenderEngine::setParameter(const int parameter, const float value)
+{
+    plugin->setParameter(parameter, value);
+}
+//==============================================================================
+bool RenderEngine::savePatch(const std::string& path)
+{
+    // Get the overriden patch and set the vst parameters with it.
+    PluginPatch overridenPatch = getPatch();
+    for (const auto& parameter : overridenPatch)
+        plugin->setParameter(parameter.first, parameter.second);
+
+    std::string newpath = path;
+
+    if (path.empty()) {
+        newpath = std::string("save.fxp");
+    }
+
+    File f = File::getCurrentWorkingDirectory().getChildFile(newpath);
+    f.create();
+    FileOutputStream fos(f);
+    MemoryBlock mb;
+    plugin->getStateInformation(mb);
+    VSTPluginFormat::saveToFXBFile(plugin.release(), mb, false);
+    fos.write(mb.getData(), mb.getSize());
+    fos.flush();
+    return true;
+}
+//==============================================================================
+bool RenderEngine::loadPatch(const std::string& path)
+{
+    MemoryBlock mb;
+    File file = File(path);
+    file.loadFileAsData(mb);
+    bool loaded = VSTPluginFormat::loadFromFXBFile(plugin.release(), mb.getData(), mb.getSize());
+    return loaded;
 }
 
 //==============================================================================
